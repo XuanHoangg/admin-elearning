@@ -8,17 +8,17 @@ const fetcher = axios.create({
             "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5Mb3AiOiJCb290Y2FtcCAzMiIsIkhldEhhblN0cmluZyI6IjE1LzA0LzIwMjMiLCJIZXRIYW5UaW1lIjoiMTY4MTUxNjgwMDAwMCIsIm5iZiI6MTY1MzkzMDAwMCwiZXhwIjoxNjgxNjY0NDAwfQ.oR9K8iSTqbo-t0Q_a-WFnKePPaMAr7sdlgR5xKAtQWA",
     },
 });
-
 // interceptors: là nơi trung gian mà api trước khi request lên server sẽ đứng tại đây và xử lý các thao tác ta yâu cầu
 fetcher.interceptors.response.use(
     // thành công
     (reponse) => {
         // transform kết quả của reponse trước khi trả ra nơi gọi request
-        return reponse.data.content;
+        return reponse.data.content || reponse.data;
     },
     // thất bại
     (error) => {
         console.log(error);
+        localStorage.setItem("deleteSuccess", error.response.data)
         // transform error trước khi trả ra nơi gọi request
         // error.repponse.data : format axios
         // .content: format của cybersorft
