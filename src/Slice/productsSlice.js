@@ -51,6 +51,17 @@ export const deleteCourse = createAsyncThunk(
         }
     }
 );
+export const getDetailCourse = createAsyncThunk(
+    "course/getDetailCourse",
+    async (value) => {
+        try {
+            return await productsApi.getDetailCourse(value);
+
+        } catch (error) {
+            throw (error);
+        }
+    }
+);
 
 const productSlice = createSlice({
     name: "products",

@@ -15,12 +15,19 @@ const productsApi = {
         );
     },
     updateCourse: async (values) => {
-        return await fetcher.put("QuanLyKhoaHoc/CapNhatKhoaHoc", values
+        return await fetcher.post("QuanLyKhoaHoc/CapNhatKhoaHocUpload", values
 
         );
     },
     deleteCourse: async (value) => {
         return await fetcher.delete("QuanLyKhoaHoc/XoaKhoaHoc", {
+            params: {
+                MaKhoaHoc: value,
+            },
+        });
+    },
+    getDetailCourse: async (value) => {
+        return await fetcher.get("QuanLyKhoaHoc/LayThongTinKhoaHoc", {
             params: {
                 MaKhoaHoc: value,
             },
