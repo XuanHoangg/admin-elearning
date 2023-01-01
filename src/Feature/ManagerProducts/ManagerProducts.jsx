@@ -160,7 +160,7 @@ const ManagerProducts = () => {
     //xóa
     const handleDeleteCourse = async (value) => {
         await dispatch(deleteCourse(value));
-        alert("Xóa thành công")
+        alert("Nếu xóa không =>Khóa học đã ghi danh học viên không thể xóa!")
         try {
             const data = await dispatch(getCourse());
 
