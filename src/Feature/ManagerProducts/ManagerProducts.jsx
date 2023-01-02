@@ -355,44 +355,45 @@ const ManagerProducts = () => {
             <div className='d-flex search my-5'>
                 <input type="text" className='form-control w-25 mx-2' placeholder='Nhập tên khóa học' onChange={evt => handleSearch(evt)} />
             </div>
-            <table className='table table-dark'>
-                <thead>
-                    <tr className='text-danger'>
-                        <th>STT</th>
-                        <th>Mã khóa học</th>
-                        <th>Tên khóa học</th>
-                        <th>Hình ảnh</th>
-                        <th>Mô tả</th>
-                        <th>Khóa học</th>
-                        <th>Người tạo</th>
-                        <th>Option</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {
-                        course.map((item, index) => (
-                            <tr key={index}>
-                                <td>{index + 1}</td>
-                                <td>{item.maKhoaHoc}</td>
-                                <td>{item.tenKhoaHoc}</td>
-                                <td >
-                                    <img src={item.hinhAnh} alt={item.tenKhoaHoc} style={{ width: "50px", height: "50px" }} />
-                                </td>
-                                <td style={{ width: "100px" }}>
-                                    {item.moTa}
-                                </td>
-                                <td>{item.danhMucKhoaHoc.tenDanhMucKhoaHoc}</td>
-                                <td>{item.nguoiTao.taiKhoan}</td>
-                                <td>
-                                    <button className='btn btn-success mx-2' onClick={() => edit(item.maKhoaHoc)}>Edit</button>
-                                    <button className='btn btn-danger' onClick={() => handleDeleteCourse(item.maKhoaHoc)}>Del</button>
-                                </td>
-                            </tr>
-                        ))
-                    }
-                </tbody>
-            </table>
-
+            <div className='table-responsive-sm  table-responsive-md table-responsive-lg table-responsive-xl'>
+                <table className='table table-dark'>
+                    <thead>
+                        <tr className='text-danger'>
+                            <th>STT</th>
+                            <th>Mã khóa học</th>
+                            <th>Tên khóa học</th>
+                            <th>Hình ảnh</th>
+                            <th>Mô tả</th>
+                            <th>Khóa học</th>
+                            <th>Người tạo</th>
+                            <th>Option</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            course.map((item, index) => (
+                                <tr key={index}>
+                                    <td>{index + 1}</td>
+                                    <td>{item.maKhoaHoc}</td>
+                                    <td>{item.tenKhoaHoc}</td>
+                                    <td >
+                                        <img src={item.hinhAnh} alt={item.tenKhoaHoc} style={{ width: "50px", height: "50px" }} />
+                                    </td>
+                                    <td style={{ width: "100px" }}>
+                                        {item.moTa}
+                                    </td>
+                                    <td>{item.danhMucKhoaHoc.tenDanhMucKhoaHoc}</td>
+                                    <td>{item.nguoiTao.taiKhoan}</td>
+                                    <td>
+                                        <button className='btn btn-success mx-2' onClick={() => edit(item.maKhoaHoc)}>Edit</button>
+                                        <button className='btn btn-danger' onClick={() => handleDeleteCourse(item.maKhoaHoc)}>Del</button>
+                                    </td>
+                                </tr>
+                            ))
+                        }
+                    </tbody>
+                </table>
+            </div>
         </div>
     )
 }

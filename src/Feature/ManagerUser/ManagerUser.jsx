@@ -204,37 +204,39 @@ const ManagerUser = () => {
                     <button className='btn btn-secondary'><AiIcons.AiOutlineSearch /></button>
                 </form>
             </div>
-            <table className='table table-dark'>
-                <thead>
-                    <tr>
-                        <th>STT</th>
-                        <th>Tài khoản</th>
-                        <th>Họ tên</th>
-                        <th>Email</th>
-                        <th>Số điện thoại</th>
-                        <th>Mã loại người dùng</th>
-                        <th>Option</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {
-                        data.map((item, index) => (
-                            <tr key={index}>
-                                <td>{index + 1}</td>
-                                <td>{item.taiKhoan}</td>
-                                <td>{item.hoTen}</td>
-                                <td>{item.email}</td>
-                                <td>{item.soDt}</td>
-                                <td>{item.maLoaiNguoiDung}</td>
-                                <td>
-                                    <button className='btn btn-success mx-2' onClick={() => edit(item)}>Edit</button>
-                                    <button className='btn btn-danger' onClick={() => removeUser(item.taiKhoan)}>Del</button>
-                                </td>
-                            </tr>
-                        ))
-                    }
-                </tbody>
-            </table>
+            <div className='table-responsive-sm  table-responsive-md table-responsive-lg table-responsive-xl'>
+                <table className='table table-dark '>
+                    <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>Tài khoản</th>
+                            <th>Họ tên</th>
+                            <th>Email</th>
+                            <th>Số điện thoại</th>
+                            <th>Mã loại người dùng</th>
+                            <th>Option</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            data.map((item, index) => (
+                                <tr key={index}>
+                                    <td>{index + 1}</td>
+                                    <td>{item.taiKhoan}</td>
+                                    <td>{item.hoTen}</td>
+                                    <td>{item.email}</td>
+                                    <td>{item.soDt}</td>
+                                    <td>{item.maLoaiNguoiDung}</td>
+                                    <td>
+                                        <button className='btn btn-success mx-2' onClick={() => edit(item)}>Edit</button>
+                                        <button className='btn btn-danger' onClick={() => removeUser(item.taiKhoan)}>Del</button>
+                                    </td>
+                                </tr>
+                            ))
+                        }
+                    </tbody>
+                </table>
+            </div>
         </div>
     )
 }
